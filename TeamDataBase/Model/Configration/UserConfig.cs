@@ -25,7 +25,7 @@ namespace TeamDataBase.Model.Configration
             .HasColumnType("NVARCHAR(100)"); // Explicitly setting NVARCHAR(50)
 
             builder.Property(u => u.NickName)
-            .IsRequired()
+            .IsRequired(false)
             .HasMaxLength(50)
             .HasColumnType("NVARCHAR(50)");
 
