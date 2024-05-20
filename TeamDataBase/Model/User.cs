@@ -10,13 +10,13 @@ namespace TeamDataBase.Model
 {
     public class User
     {
-        [Key]
+        
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public string NickName { get; set; }=string.Empty;
         public string Mail { get; set; }
-        [PasswordPropertyText]
+        
         public string Password { get; set; }
         public string Phone { get; set; }
         

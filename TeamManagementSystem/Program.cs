@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using TeamDataBase.Model.TeamDbcontext;
+
 namespace TeamManagementSystem
 {
     public class Program
@@ -8,11 +11,16 @@ namespace TeamManagementSystem
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            #region Connection String
+            var connectionString = builder.Configuration.GetConnectionString("Connection");
+            builder.Services.AddDbContext<TeamDbContext>(options =>
+            options.UseSqlServer(connectionString));
+            #endregion
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
 
             var app = builder.Build();
 
