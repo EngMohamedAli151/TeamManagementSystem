@@ -34,6 +34,11 @@ namespace TeamRepository.Repository
             return _context .Set<T>().ToList();
         }
 
+        public IEnumerable<T> GetAll(string FilterName)
+        {
+            return _context.Set<T>().ToList();
+        }
+
         public T GetById(int id)
         {
             var Id = _context.Set<T>().Find(id);

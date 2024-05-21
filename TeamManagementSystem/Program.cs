@@ -1,6 +1,11 @@
 
 using Microsoft.EntityFrameworkCore;
+using Team.Repository.Interface;
+using Team.Repository.Repository;
+using TeamDataBase.Model;
 using TeamDataBase.Model.TeamDbcontext;
+using TeamRepository.Interface;
+using TeamRepository.Repository;
 
 namespace TeamManagementSystem
 {
@@ -15,6 +20,12 @@ namespace TeamManagementSystem
             var connectionString = builder.Configuration.GetConnectionString("Connection");
             builder.Services.AddDbContext<TeamDbContext>(options =>
             options.UseSqlServer(connectionString));
+            #endregion
+            #region Independance
+            builder.Services.AddScoped<IUnitOfWork<TeamDbContext>, UnitOfWork<TeamDbContext>>();
+            builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
+            builder.Services.AddScoped<IBaseRepository<DailyStandUp>, BaseRepository<DailyStandUp>>();
+           
             #endregion
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

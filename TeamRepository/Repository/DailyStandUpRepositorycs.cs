@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Team.Repository.Interface;
 using TeamDataBase.Model;
 using TeamDataBase.Model.TeamDbcontext;
-using TeamRepository.Interface;
+using TeamRepository.Repository;
 
-namespace TeamRepository.Repository
+namespace Team.Repository.Repository
 {
-    public class UserRepository:BaseRepository<User>,IUserRepository
+    public class DailyStandUpRepositorycs:BaseRepository<DailyStandUp>,IDailyStandUpRepository
     {
         private readonly TeamDbContext _context;
-        public UserRepository(TeamDbContext context) : base(context)
+        public DailyStandUpRepositorycs(TeamDbContext context):base(context) 
         {
             
         }

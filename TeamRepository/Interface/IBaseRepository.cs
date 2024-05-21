@@ -14,6 +14,7 @@ namespace TeamRepository.Interface
         T Update(T entity);
         T Delete(T entity);
         IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(String FilterName);
 
     }
 }
