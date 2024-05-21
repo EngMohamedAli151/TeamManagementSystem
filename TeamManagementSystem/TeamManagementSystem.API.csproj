@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TeamDataBase\TeamDataBase.csproj" />
-    <ProjectReference Include="..\TeamRepository\TeamRepository.csproj" />
-    <ProjectReference Include="..\TeamServices\TeamServices.csproj" />
+    <ProjectReference Include="..\TeamDataBase\Team.DataBase.csproj" />
+    <ProjectReference Include="..\TeamRepository\Team.Repository.csproj" />
+    <ProjectReference Include="..\TeamServices\Team.Services.csproj" />
   </ItemGroup>
 
 </Project>

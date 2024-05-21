@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamManagementSystem", "TeamManagementSystem\TeamManagementSystem.csproj", "{9C3DDB2D-D139-4D55-BFDE-63CACDC6FD34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamManagementSystem.API", "TeamManagementSystem\TeamManagementSystem.API.csproj", "{9C3DDB2D-D139-4D55-BFDE-63CACDC6FD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamDataBase", "TeamDataBase\TeamDataBase.csproj", "{AC690872-91CE-4E6A-9409-0BD3BC6DF592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.DataBase", "TeamDataBase\Team.DataBase.csproj", "{AC690872-91CE-4E6A-9409-0BD3BC6DF592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamRepository", "TeamRepository\TeamRepository.csproj", "{CB9CAA25-F515-410E-8AA0-8FC1C2602EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Repository", "TeamRepository\Team.Repository.csproj", "{CB9CAA25-F515-410E-8AA0-8FC1C2602EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamServices", "TeamServices\TeamServices.csproj", "{98D04597-31A5-48EB-B095-996328CEA411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Services", "TeamServices\Team.Services.csproj", "{98D04597-31A5-48EB-B095-996328CEA411}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

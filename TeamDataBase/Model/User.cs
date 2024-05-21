@@ -16,7 +16,6 @@ namespace TeamDataBase.Model
         public string Name { get; set; }
         public string NickName { get; set; }=string.Empty;
         public string Mail { get; set; }
-        
         public string Password { get; set; }
         public string Phone { get; set; }
         
