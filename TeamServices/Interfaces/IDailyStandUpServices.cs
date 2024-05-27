@@ -10,7 +10,8 @@ using TeamServices.Interfaces;
 
 namespace Team.Services.Interfaces
 {
-    public interface IDailyStandUpServices1:IGenericServices<TeamDbContext,IDailyStandUpRepository,DailyStandUp>
+    public interface IDailyStandUpServices:IGenericServices<TeamDbContext,IDailyStandUpRepository,DailyStandUp>
     {
+       DailyStandUp GetByDate(DateOnly date);
     }
 }

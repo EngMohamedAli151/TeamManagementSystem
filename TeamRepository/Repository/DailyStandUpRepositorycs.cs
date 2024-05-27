@@ -17,5 +17,14 @@ namespace Team.Repository.Repository
         {
             
         }
+
+        public DailyStandUp GetDate(DateOnly date)
+        {
+            if (_context.DailyStandUp.Any(x => x.Date == date))
+            {
+                return _context.DailyStandUp.First(x => x.Date == date);
+            }
+            return null;
+        }
     }
 }

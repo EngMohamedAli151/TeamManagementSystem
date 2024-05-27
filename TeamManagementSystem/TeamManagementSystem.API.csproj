@@ -18,10 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Team.Core\Team.Core.csproj" />
     <ProjectReference Include="..\TeamDataBase\Team.DataBase.csproj" />
     <ProjectReference Include="..\TeamRepository\Team.Repository.csproj" />
     <ProjectReference Include="..\TeamServices\Team.Services.csproj" />

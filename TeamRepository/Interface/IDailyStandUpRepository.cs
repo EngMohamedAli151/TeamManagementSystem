@@ -10,5 +10,6 @@ namespace Team.Repository.Interface
 {
     public interface IDailyStandUpRepository:IBaseRepository<DailyStandUp>
     {
+        DailyStandUp GetDate(DateOnly date);
     }
 }
