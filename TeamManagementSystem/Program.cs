@@ -1,7 +1,13 @@
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Team.Repository.Interface;
 using Team.Repository.Repository;
+using Team.Services.Interfaces;
+using Team.Services.Services;
 using TeamDataBase.Model;
 using TeamDataBase.Model.TeamDbcontext;
 using TeamRepository.Interface;
@@ -23,10 +29,37 @@ namespace TeamManagementSystem
             #endregion
             #region Independance
             builder.Services.AddScoped<IUnitOfWork<TeamDbContext>, UnitOfWork<TeamDbContext>>();
-            builder.Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
             builder.Services.AddScoped<IBaseRepository<DailyStandUp>, BaseRepository<DailyStandUp>>();
-           
+            builder.Services.AddScoped<IDailyStandUpRepository, DailyStandUpRepository>();
+            builder.Services.AddScoped<IBaseRepository<DailyStandUp>, BaseRepository<DailyStandUp>>();
+            builder.Services.AddScoped<IDailyStandUpServices,DailyStandUpServices >();
+            builder.Services.AddScoped<IAcountServices,AcountServices >();
             #endregion
+
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+             .AddEntityFrameworkStores<TeamDbContext>()
+             .AddDefaultTokenProviders();
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+               options.TokenValidationParameters = new TokenValidationParameters
+               {
+                 ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                ValidAudience = builder.Configuration["Jwt:Issuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+               };
+            });
+
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -35,7 +68,7 @@ namespace TeamManagementSystem
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configure the HTTP request pipeline. 
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -43,10 +76,8 @@ namespace TeamManagementSystem
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
+            app.UseAuthorization();
             app.MapControllers();
 
             app.Run();

@@ -12,7 +12,7 @@ namespace TeamDataBase.Model
         
         public int Id { get; set; }
         public int UserFk { get; set;}
-        public DateOnly Date { get; set;}
+        public DateTime Date { get; set;}
         [MaxLength(250)]
         public string Status { get; set; }
 

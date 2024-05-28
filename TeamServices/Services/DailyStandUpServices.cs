@@ -25,7 +25,7 @@ namespace Team.Services.Services
             _unitOfWork=unitOfWork;
         }
 
-        public DailyStandUp GetByDate(DateOnly date)
+        public DailyStandUp GetByDate(string date)
         {
            return _dailyStandUpRepository.GetDate(date);
         }

@@ -10,19 +10,19 @@ using TeamRepository.Repository;
 
 namespace Team.Repository.Repository
 {
-    public class DailyStandUpRepositorycs:BaseRepository<DailyStandUp>,IDailyStandUpRepository
+    public class DailyStandUpRepository:BaseRepository<DailyStandUp>,IDailyStandUpRepository
     {
         private readonly TeamDbContext _context;
-        public DailyStandUpRepositorycs(TeamDbContext context):base(context) 
+        public DailyStandUpRepository(TeamDbContext context):base(context) 
         {
-            
+            _context = context;
         }
 
-        public DailyStandUp GetDate(DateOnly date)
+        public DailyStandUp GetDate(string date)
         {
-            if (_context.DailyStandUp.Any(x => x.Date == date))
+            if (_context.DailyStandUp.Any(x => x.Date == Convert.ToDateTime( date)))
             {
-                return _context.DailyStandUp.First(x => x.Date == date);
+                return _context.DailyStandUp.First(x => x.Date == Convert.ToDateTime(date));
             }
             return null;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,8 @@ using TeamServices.Interfaces;
 
 namespace Team.Services.Interfaces
 {
-    public interface IUserServices:IGenericServices<TeamDbContext,IUserRepository,User>
+    public interface IAcountServices
     {
+        string GenerateToken(IdentityUser user);
     }
 }

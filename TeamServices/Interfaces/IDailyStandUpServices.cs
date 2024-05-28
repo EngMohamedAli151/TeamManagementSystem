@@ -12,6 +12,6 @@ namespace Team.Services.Interfaces
 {
     public interface IDailyStandUpServices:IGenericServices<TeamDbContext,IDailyStandUpRepository,DailyStandUp>
     {
-       DailyStandUp GetByDate(DateOnly date);
+       DailyStandUp GetByDate(string date);
     }
 }

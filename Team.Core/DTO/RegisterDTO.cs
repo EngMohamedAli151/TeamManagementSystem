@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Team.Core.DTO
 {
-    public class UserDTO
+    public class RegisterDTO
     {
-       
-        public string Name { get; set; }
-        public string NickName { get; set; } = string.Empty;
-        public string Mail { get; set; }
+        [Required]
+        public string Username { get; set; }
+        [Required]
         public string Password { get; set; }
-        public string Phone { get; set; }
     }
 }

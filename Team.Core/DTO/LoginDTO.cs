@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Team.Core.DTO
 {
-    public class DailyStandUpDTO
+    public class LoginDTO
     {
-        public string Date { get; set; } 
-        [MaxLength(250)]
-        public string Status { get; set; }
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }
