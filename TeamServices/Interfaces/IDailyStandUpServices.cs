@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Team.Core.DTO;
 using Team.Repository.Interface;
 using TeamDataBase.Model;
 using TeamDataBase.Model.TeamDbcontext;
@@ -12,6 +14,7 @@ namespace Team.Services.Interfaces
 {
     public interface IDailyStandUpServices:IGenericServices<TeamDbContext,IDailyStandUpRepository,DailyStandUp>
     {
-       DailyStandUp GetByDate(string date);
+       DailyStandUp GetAll(DailyStandUPFilter filter );
+       
     }
 }

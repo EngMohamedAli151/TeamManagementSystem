@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Team.Core.DTO;
 using Team.Repository.Interface;
 using Team.Services.Interfaces;
 using TeamDataBase.Model;
@@ -25,9 +26,11 @@ namespace Team.Services.Services
             _unitOfWork=unitOfWork;
         }
 
-        public DailyStandUp GetByDate(string date)
+        public DailyStandUp GetAll(DailyStandUPFilter filter)
         {
-           return _dailyStandUpRepository.GetDate(date);
+            throw new NotImplementedException();
         }
+
+       
     }
 }

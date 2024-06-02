@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Team.Core\Team.Core.csproj" />
     <ProjectReference Include="..\TeamDataBase\Team.DataBase.csproj" />
     <ProjectReference Include="..\TeamRepository\Team.Repository.csproj" />
   </ItemGroup>

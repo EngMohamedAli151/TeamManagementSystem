@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TeamDataBase.Model.TeamDbcontext;
@@ -27,6 +29,13 @@ namespace TeamRepository.Repository
             _context.Set<T>().Remove(entity);
             _context.SaveChanges();
             return entity;
+        }
+
+        public IEnumerable<T> FindAll(Expression<Func<T, bool>> match)
+        {
+            IQueryable<T> query = _context.Set<T>();
+         
+            return query.Where(match).ToList();
         }
 
         public IEnumerable<T> GetAll()
